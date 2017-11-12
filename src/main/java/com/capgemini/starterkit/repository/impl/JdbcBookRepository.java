@@ -13,7 +13,7 @@ import com.capgemini.starterkit.entity.Book;
 import com.capgemini.starterkit.repository.BookRepository;
 import com.google.common.collect.Maps;
 
-@Repository
+//@Repository
 public class JdbcBookRepository implements BookRepository{
 
     @Autowired

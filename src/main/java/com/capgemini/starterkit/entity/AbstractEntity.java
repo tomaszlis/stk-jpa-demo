@@ -1,13 +1,18 @@
 package com.capgemini.starterkit.entity;
 
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 
 @MappedSuperclass
+@EntityListeners(AuditListener.class)
 public class AbstractEntity {
 
 	@Id
+	@GeneratedValue
 	private Long id;
 	
 	@Version

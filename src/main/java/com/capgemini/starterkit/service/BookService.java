@@ -8,4 +8,6 @@ public interface BookService {
 	
 	public void createBook(String isbn, String title);
 
+	public void delete(Book book);
+
 }
