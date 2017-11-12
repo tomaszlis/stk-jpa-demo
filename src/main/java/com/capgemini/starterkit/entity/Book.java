@@ -69,12 +69,20 @@ public class Book extends AbstractEntity {
 	public void setAuthor(List<Author> author) {
 		this.author = author;
 	}
-	
-	
 
-	
-	
-	
-	
-	
+	public BookType getType() {
+		return type;
+	}
+
+	public void setType(BookType type) {
+		this.type = type;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 }

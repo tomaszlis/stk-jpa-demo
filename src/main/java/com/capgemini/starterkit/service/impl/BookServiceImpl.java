@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.capgemini.starterkit.datatype.BookType;
 import com.capgemini.starterkit.entity.Book;
 import com.capgemini.starterkit.repository.BookRepository;
 import com.capgemini.starterkit.service.BookService;
@@ -29,6 +30,7 @@ public class BookServiceImpl implements BookService {
 		Book b = new Book();
 		b.setTitle(title);
 		b.setIsbn(isbn);
+		b.setType(BookType.ADVENTURE);
 		bookRepository.saveBook(b);
 	}
 

@@ -1,7 +1,5 @@
 package com.capgemini.starterkit.entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
@@ -13,7 +11,7 @@ public class AbstractEntity {
 	private Long id;
 	
 	@Version
-	private int modificationCounter;
+	private int version;
 
 	private String persistingHistory;
 
@@ -25,12 +23,12 @@ public class AbstractEntity {
 		this.id = id;
 	}
 
-	public int getModificationCounter() {
-		return modificationCounter;
+	public int getVersion() {
+		return version;
 	}
 
-	public void setModificationCounter(int modificationCounter) {
-		this.modificationCounter = modificationCounter;
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	public String getPersistingHistory() {

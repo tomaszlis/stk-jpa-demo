@@ -6,7 +6,7 @@ import com.capgemini.starterkit.entity.Book;
 import com.capgemini.starterkit.repository.BookRepository;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-@Repository
+//@Repository
 public class BookRepositoryImpl implements BookRepository{
 
     @Override public Book findBookByIsbn(String isbn) {
