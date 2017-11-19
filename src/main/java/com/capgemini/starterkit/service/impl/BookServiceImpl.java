@@ -18,7 +18,7 @@ public class BookServiceImpl implements BookService {
 
 	@Autowired
 	private BookRepository bookRepository;
-	
+
 	@Override
 	public Book findBookByIsbn(String isbn) {
 		Book foundBook = bookRepository.findBookByIsbn(isbn);

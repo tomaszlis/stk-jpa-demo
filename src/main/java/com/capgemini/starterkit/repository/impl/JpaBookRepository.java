@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
 import com.capgemini.starterkit.entity.Book;
+import com.capgemini.starterkit.repository.BookQueries;
 import com.capgemini.starterkit.repository.BookRepository;
 
 @Repository
@@ -18,7 +19,7 @@ public class JpaBookRepository implements BookRepository {
     private EntityManager entityManager;
 
     @Override public Book findBookByIsbn(String isbn) {
-        List<Book> result= entityManager.createQuery("SELECT b from Book b where b.isbn = :isbn", Book.class)
+        List<Book> result= entityManager.createNamedQuery(BookQueries.BY_ISBN, Book.class)
                 .setParameter("isbn", isbn)
                 .getResultList();
 

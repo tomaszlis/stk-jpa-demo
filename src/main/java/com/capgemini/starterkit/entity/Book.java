@@ -12,29 +12,32 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.capgemini.starterkit.datatype.BookType;
+import com.capgemini.starterkit.repository.BookQueries;
 
 @Entity
+@NamedQuery(name=BookQueries.BY_ISBN,query="SELECT b from Book b where b.isbn = :isbn")
 public class Book extends AbstractEntity {
 
 	@NotNull
 	private String isbn;
-	
+
 	@Size(max=45)
 	private String title;
-	
+
 	@Enumerated(EnumType.STRING)
 	private BookType type;
-	
+
 	private int year;
-	
+
 	private boolean active;
-	
+
 	@ManyToMany
 	private List<Author> author;
 
