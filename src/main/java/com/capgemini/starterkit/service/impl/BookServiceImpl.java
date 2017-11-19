@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.capgemini.starterkit.datatype.BookType;
 import com.capgemini.starterkit.entity.Book;
 import com.capgemini.starterkit.repository.BookRepository;
+import com.capgemini.starterkit.repository.BookRepositoryRevised;
 import com.capgemini.starterkit.repository.SearchBookRepository;
 import com.capgemini.starterkit.repository.BookSearchCriteria;
 import com.capgemini.starterkit.service.BookService;
@@ -23,7 +24,10 @@ public class BookServiceImpl implements BookService {
 
 	@Autowired
 	private SearchBookRepository searchBookRepository;
-	
+
+	@Autowired
+	private BookRepositoryRevised repositoryRevised;
+
 	@Override
 	public Book findBookByIsbn(String isbn) {
 		Book foundBook = bookRepository.findBookByIsbn(isbn);
@@ -48,6 +52,10 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public List<Book> findBookByCriteria(BookSearchCriteria searchCriteria) {
 		return searchBookRepository.findBookByCriteria(searchCriteria);
+	}
+
+	public List<Book> findBySpecification() {
+		return repositoryRevised.findAll(BookSpecification.byIsbn("1234"));
 	}
 
 }
