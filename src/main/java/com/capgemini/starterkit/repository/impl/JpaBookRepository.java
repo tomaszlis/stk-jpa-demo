@@ -18,7 +18,8 @@ public class JpaBookRepository implements BookRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Override public Book findBookByIsbn(String isbn) {
+    @Override 
+    public Book findBookByIsbn(String isbn) {
         List<Book> result= entityManager.createNamedQuery(BookQueries.BY_ISBN, Book.class)
                 .setParameter("isbn", isbn)
                 .getResultList();
@@ -31,11 +32,13 @@ public class JpaBookRepository implements BookRepository {
         }
     }
 
-    @Override public void saveBook(Book book) {
+    @Override 
+    public void saveBook(Book book) {
         entityManager.persist(book);
     }
 
-    @Override public void deleteBook(Book book) {
+    @Override 
+    public void deleteBook(Book book) {
         entityManager.remove(book);
     }
 }

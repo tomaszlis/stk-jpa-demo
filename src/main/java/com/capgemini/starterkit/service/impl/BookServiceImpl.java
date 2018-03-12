@@ -1,13 +1,10 @@
 package com.capgemini.starterkit.service.impl;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.capgemini.starterkit.datatype.BookType;
 import com.capgemini.starterkit.entity.Book;
 import com.capgemini.starterkit.repository.BookRepository;
 import com.capgemini.starterkit.service.BookService;
@@ -28,9 +25,9 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public void createBook(String isbn, String title) {
 		Book b = new Book();
-		b.setTitle(title);
-		b.setIsbn(isbn);
-		b.setType(BookType.ADVENTURE);
+//		b.setTitle(title);
+//		b.setIsbn(isbn);
+//		b.setType(BookType.ADVENTURE);
 		bookRepository.saveBook(b);
 	}
 

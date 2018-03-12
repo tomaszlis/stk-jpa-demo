@@ -19,7 +19,8 @@ public class JdbcBookRepository implements BookRepository{
     @Autowired
     private NamedParameterJdbcTemplate jdbcTemplate;
 
-    @Override public Book findBookByIsbn(String isbn) {
+    @Override 
+    public Book findBookByIsbn(String isbn) {
         MapSqlParameterSource isbParams = new MapSqlParameterSource("isbn", isbn);
 
         List<Book> books = jdbcTemplate.query("SELECT * from BOOK b where b.isbn = :isbn", isbParams, new BookResultMapper());
@@ -29,25 +30,27 @@ public class JdbcBookRepository implements BookRepository{
         return null;
     }
 
-    @Override public void saveBook(Book book) {
+    @Override 
+    public void saveBook(Book book) {
         String sql = "INSERT INTO BOOK (id, version, title, year, isbn, active) VALUES (:id, :version, :title, :year, :isbn, :active)";
 
         Map<String,Object> parameters = Maps.newHashMap();
         parameters.put("id", new Random().nextLong());
         parameters.put("version", 0);
-        parameters.put("title", book.getTitle());
-        parameters.put("year", book.getYear());
-        parameters.put("isbn", book.getIsbn());
-        parameters.put("active", book.isActive());
+//        parameters.put("title", book.getTitle());
+//        parameters.put("year", book.getYear());
+//        parameters.put("isbn", book.getIsbn());
+//        parameters.put("active", book.isActive());
 
         jdbcTemplate.update(sql,parameters);
 
     }
 
-    @Override public void deleteBook(Book book) {
+    @Override 
+    public void deleteBook(Book book) {
         String sqlDelete = "DELETE FROM book where id=:id";
         Map<String,Object> parameters = Maps.newHashMap();
-        parameters.put("id", book.getId());
+       // parameters.put("id", book.getId());
         jdbcTemplate.update(sqlDelete, parameters);
 
     }
