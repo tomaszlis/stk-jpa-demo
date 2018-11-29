@@ -12,7 +12,7 @@ public class JpaDemoApplicationTests {
 	@Test
 	public void contextLoads() {
 
-		assertEquals(true, true);
+		assertEquals(false, true);
 	}
 
 }
